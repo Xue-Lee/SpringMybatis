@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icss.dao.StudentDao">
+	<select id="findStuAll" resultType="stu">
+		select * from student;
+	</select>
+	<select id="findStuBySex" resultType="stu" parameterType="string">
+		select * from student where sex = #{sex};
+	</select>
+	<select id="showStuBySexGrade1" resultType="stu">
+	 	select * from student where grade &lt; #{grade};
+	</select>
+	<select id="showStuBySexGrade2" resultType="stu">
+	 	select * from student where grade &gt;= #{grade};
+	</select>
+	<insert id="addStudent" >
+		insert into student values(#{stuId},#{stuName},#{sex},#{birthday},null,null,#{grade});
+	</insert>
+</mapper>
